@@ -1,0 +1,31 @@
+{
+  "name": "javascript_project",
+  "version": "1.0.0",
+  "description": "This game will be similar to a trivia game with some gaming skills needed. \r The goal of the user is to answer the question and to try to collide with \r the correct sprite that matches the answer.\r 1) If the user collides with a sprite with the wrong solution to the trivia\r question, then you lose a life.\r 2) After you lose, their is a play again option.",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production",
+    "start": "webpack --watch --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
+    "core-js": "^3.26.1",
+    "css-loader": "^6.7.2",
+    "mini-css-extract-plugin": "^2.7.1",
+    "regenerator-runtime": "^0.13.11",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  }
+}
