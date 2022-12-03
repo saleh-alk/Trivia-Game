@@ -1,0 +1,34 @@
+#game-box {
+    display: inline;
+    text-align: center;
+    color: red;
+    background-image: url('/src/assets/background.png');
+    /* background-color: red; */
+    margin-top: 100px;
+    margin-left: 250px;
+    /* margin-right: 450px; */
+
+}
+#title {
+    font-size: 25px;
+    font-family: sans-serif;
+    color: plum;
+    background-color: black;
+    width: 150px;
+    margin-left: 40%;
+
+}
+#question-box {
+    background-color: red;
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+#game {
+ display: flex;
+}
+
+body{
+    background-image: url('/src/assets/background1.png');
+}
+
