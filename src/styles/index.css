@@ -1,12 +1,12 @@
 #game-box {
     display: inline;
     text-align: center;
-    color: red;
-    background-image: url('/src/assets/background.png');
-    /* background-color: red; */
-    margin-top: 100px;
-    margin-left: 250px;
-    /* margin-right: 450px; */
+    /* color: red; */
+    /* background-image: url('/src/assets/background.png'); */
+    
+    margin-top: 25px;
+    
+  
 
 }
 #title {
@@ -29,6 +29,21 @@
 }
 
 body{
-    background-image: url('/src/assets/background1.png');
+    /* background-image: url('/src/assets/background1.png'); */
+}
+#question-box{
+    height: 100;
+    width: 300px;
+    margin-left: 10px;
+}
+
+img{
+    height: 50px;
+
+}
+
+li{
+    display: flex;
+    list-style: none;
 }
 

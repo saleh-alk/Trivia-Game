@@ -1,45 +1,28 @@
 
 import Player from './player.js'
+
+import Question from './question.js'
 class Game {
     constructor(ctx){
         
         this.ctx = ctx
-        this.player = new Player(ctx)
-        this.player.animate()
-
+        this.player = new Player(ctx, -30, 200)
+        // this.player.animate()
+        
+        //this.player.move()
+        this.player.trivia()
+        console.log(this.player)
+        //this.question = new Question(ctx)
+        //this.question.animate()
+    
+        
       
         
     }
 
-    startGame(){
-        
-    }
-
-    startRound(){
-
-    }
-
-    animate(){
-        //background Image
-        // const background = new Image()
-        // background.src = "src/assets/background.png"
-
-        //Player
-        // const spriteSheet = new Image()
-        // spriteSheet.src = "src/assets/astronaut.png"
-        // spriteSheet.classList.add("astronaut")
 
 
-        
-        // window.onload = ()=> {
-           
-        //     this.ctx.drawImage(background, 0, 0);
-        
-        // }
-        this.player.animate()
-       
 
-    }
 
     restart(){
 
