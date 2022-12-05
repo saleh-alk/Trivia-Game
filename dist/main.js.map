@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","mappings":"YAEA,IAAIA,EAAIC,SAASC,eAAe,MAChCC,QAAQC,IAAI,MACZJ,EAAEK,UAAY,K","sources":["webpack://javascript_project/./src/index.js"],"sourcesContent":["\n\nlet h = document.getElementById(\"hi\");\nconsole.log(\"hi\")\nh.innerHTML = \"bye\";\n"],"names":["h","document","getElementById","console","log","innerHTML"],"sourceRoot":""}

@@ -1,62 +1,17 @@
 import { async } from 'regenerator-runtime';
-import Game from './scripts/game.js'
-
+//import Game from './scripts/game.js'
+import Character from './scripts/character.js'
+import Question from './scripts/question.js'
 
 document.addEventListener("DOMContentLoaded", () => {
     let canvas = document.querySelector("#game-box")
     let ctx = canvas.getContext("2d")
 
-    let game = new Game(ctx);
-    console.log(game.player.trivia())
+  
 
-
-    class Character {
-        constructor(position, velocity, img ){
-            this.position = position
-            this.img = img
-            this.velocity = velocity
-    
-            this.score = 0
-            this.character = new Image()
-            this.character.src = this.img
-            //this.height = this.character.height
-            //this.width = this.character.width
-
-        }
-
-        draw(){
-            ctx.drawImage(this.character, this.position.x, this.position.y, this.character.width, this.character.height); 
-        }
-
-        update(){
-            this.draw()
-            this.position.x += this.velocity.x
-            this.position.y += this.velocity.y
-            if(this.position.y + this.height + this.velocity.y >= canvas.height){
-                this.velocity.y = 0
-            } 
-            if (this.position.x + this.width + this.velocity.x >= canvas.width) {
-                this.velocity.x = 0
-            } 
-        }
-
-
-    }
-
-
-    class GameOver {
-        constructor(){
-
-        }
-
-        loseDisplay(){
-            ctx.fillText("Oh no! You lost", 100, 170);
-        }
-
-    }
-
-    const gameover = new GameOver()
-    console.log(gameover.loseDisplay())
+    const questions = new Question()
+    questions.trivia()
+  
 
     const player = new Character({
         x: -30,
@@ -64,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },{
         x:0,
         y:0
-    }, "src/assets/astronaut2.png")
+    }, "src/assets/astronaut2.png", ctx, canvas)
 
     const red = new Character({
         x: 200,
@@ -73,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },{
         x: 0,
         y: 2
-    }, "src/assets/red.png")
+    }, "src/assets/red.png", ctx, canvas)
 
     const green = new Character({
         x: 400,
@@ -82,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, {
         x: 0,
         y: 1
-    }, "src/assets/green.png")
+    }, "src/assets/green.png", ctx, canvas)
 
     const blue = new Character({
         x: 600,
@@ -91,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, {
         x: 0,
         y: 3
-    }, "src/assets/blue.png")
+    }, "src/assets/blue.png", ctx, canvas)
 
     const yellow = new Character({
         x: 800,
@@ -100,13 +55,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }, {
         x: 0,
         y: 4
-    }, "src/assets/yellow.png")
+    }, "src/assets/yellow.png", ctx, canvas)
 
     
 
-    let gameOver = false
+    
     let score = 0
 
+    /// start the game button and gameover
+    let startButton = document.getElementById("start")
+    let gameOver = document.getElementById("gameover")
+
+
+    //animate characters, collision, answers movement
+    
     function animate() {
         
         window.requestAnimationFrame(animate)
@@ -117,16 +79,42 @@ document.addEventListener("DOMContentLoaded", () => {
         green.update()
         blue.update()
         yellow.update()
+        
     
 
         //collision
+        function collision(colorPosition, colorCharacter) {
+            if (player.position.x + player.character.width >= colorPosition.x
+                && player.position.x <= colorPosition.x + colorCharacter.width
+                && player.position.y + player.character.height >= colorPosition.y
+                && player.position.y <= colorPosition.y + colorCharacter.height) {
+                score += 1
+                console.log(score)
+                //gameOver = true
+                gameOver.style.display = "block"
+                
+                red.position.x = 200
+                red.position.y = 55
+                red.velocity.y = 0
 
-        if (player.position.x + player.character.width >= red.position.x && player.position.x <= red.position.x + red.character.width) {
-            score += 1
-            console.log(score)
-            gameOver = true
-            //red.velocity = 0
+                green.position.x = 400
+                green.position.y = 55
+                green.velocity.y = 0
+
+                blue.position.x = 600
+                blue.position.y = 55
+                blue.velocity.y = 0
+
+                yellow.position.x = 800
+                yellow.position.y = 55
+                yellow.velocity.y = 0
+            }
         }
+        collision(red.position, red.character)
+        collision(yellow.position, yellow.character)
+        collision(blue.position, blue.character)
+        collision(green.position, green.character)
+       
   
 
         //colors up and down movement
@@ -159,14 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+   
+
     
-
-    if(!gameOver){
-        animate()
-        console.log(gameOver)
-    }else{
-
-    }
+   
+        
+    
 
     
 
@@ -217,9 +203,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    startButton.addEventListener("click", (e) => {
+        let startDiv = document.getElementById("start")
+        let gameBox = document.getElementById("game-box")
+        let questionBox = document.getElementById("question-box")
+        animate()
+        //console.log(questions.trivia())
 
 
-    // getting cursor positions
+        startDiv.style.display = "none"
+        gameBox.style.display = "block"
+        questionBox.style.display = "block"
+    })
+
+
+    gameOver.addEventListener("click", (e) => {
+        let startDiv = document.getElementById("start")
+        let gameBox = document.getElementById("game-box")
+        let questionBox = document.getElementById("question-box")
+        ctx.clearRect(0,0, canvas.width, canvas.height)
+
+        //console.log(questions.trivia())
+
+
+        startDiv.style.display = "block"
+        gameBox.style.display = "none"
+        questionBox.style.display = "none"
+    })
+
+
+
+
+
+
+
+
+    // getting  positions
     function getCursorPosition(canvas, event) {
         const rect = canvas.getBoundingClientRect()
         const x = event.clientX - rect.left

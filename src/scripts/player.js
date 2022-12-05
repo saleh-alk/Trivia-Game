@@ -106,17 +106,22 @@ class Player {
             }
             colors[colors.length - 1].innerHTML = question.results[0].correct_answer
             this.answer = colors[colors.length - 1]
-            return this.answer.id
 
 
         })
+    }
+
+
+
+  
+
     }
 
     
      
 
 
-}
+
 
 
 export default Player

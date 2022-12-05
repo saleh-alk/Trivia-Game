@@ -4,14 +4,10 @@
 #game-box {
     display: inline;
     text-align: center;
-    /* color: red; */
-    /* background-image: url('/src/assets/background.png'); */
-    
     margin-top: 25px;
-    
-  
 
 }
+
 #title {
     font-size: 25px;
     font-family: sans-serif;
@@ -32,7 +28,8 @@
 }
 
 body{
-    /* background-image: url('/src/assets/background1.png'); */
+    /* background-image: url('/src/assets/background1.png');  */
+    background-color: #494D5F;
 }
 #question-box{
     height: 100;
@@ -50,6 +47,23 @@ li{
     list-style: none;
 }
 
+#start{
+    padding: 20px;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    text-align: center;
+}
+
+#start a{
+    color: olivedrab;
+    padding: 10px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size: 2em;
+    display: inline-block;
+}
 
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!

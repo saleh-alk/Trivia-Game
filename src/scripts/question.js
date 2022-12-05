@@ -4,49 +4,81 @@
 class Question {
     
 
-    constructor(ctx){
+    constructor(){
+        this.answer = ""
+    }
+
+
+    trivia() {
         
-        this.ctx = ctx
-        this.y = 55
+        const url = "https://opentdb.com/api.php?amount=50"
+        async function fetchNew() {
+            try {
+                const res = await fetch(url);
 
-        this.red_y = 55
-        this.red_x = 200
-        this.red_down = true
+                if (res.ok) {
+                    let data = await res.json();
+                    return data;
+                } else {
+                    let data = await res.json();
+                    throw data.meta.msg;
+                }
+            } catch (error) {
+                console.warn(error)
+            }
 
-        this.green_y = 55
-        this.green_x = 400
-        this.green_down = true
+        }
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
 
-        this.blue_y = 55
-        this.blue_x = 600
-        this.blue_down = true
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]];
+            }
 
-        this.yellow_y = 55
-        this.yellow_x = 800
-        this.yellow_down = true
+            return array;
+        }
 
-        this.green = new Image()
-        this.green.src = "src/assets/green.png"
+        let answer = "hi";
 
-        this.red = new Image()
-        this.red.src = "src/assets/red.png"
 
-        this.yellow = new Image()
-        this.yellow.src = "src/assets/yellow.png"
+        // take this to index
+       document.getElementById("start").addEventListener('click', async e => {
+            //e.preventDefault();
+            const q = document.getElementById("question")
 
-        this.blue = new Image()
-        this.blue.src = "src/assets/blue.png"
-        
+            const red = document.getElementById("red")
+            const blue = document.getElementById("blue")
+            const yellow = document.getElementById("yellow")
+            const green = document.getElementById("green")
+
+           let answer = document.getElementById("answer")
+
+            let colors = [red, blue, yellow, green]
+
+
+            let question = await fetchNew();
+            q.innerHTML = question.results[0].question
+            colors = shuffle(colors)
+            for (let index = 0; index < colors.length - 1; index++) {
+                colors[index].innerHTML = question.results[0].incorrect_answers[index]
+            }
+            colors[colors.length - 1].innerHTML = question.results[0].correct_answer
+            //colors[colors.length - 1]
+            //console.log(answer)
+           answer.innerHTML = colors[colors.length - 1].id
+
+
+        })
 
         
     }
 
-
    
 
-   
-
-       
+  
     
 
 
