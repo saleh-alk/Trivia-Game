@@ -45,7 +45,7 @@ class Question {
 
 
         // take this to index
-       document.getElementById("start").addEventListener('click', async e => {
+       document.getElementById("playgame").addEventListener('click', async e => {
             //e.preventDefault();
             const q = document.getElementById("question")
 

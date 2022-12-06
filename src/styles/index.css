@@ -8,10 +8,13 @@
 #title {
     font-size: 25px;
     font-family: sans-serif;
-    color: plum;
-    background-color: black;
-    width: 150px;
+    color: #5cbdb9;
+    background-color: #c2edda;
+    width: 200px;
     margin-left: 40%;
+    margin-right: 10%;
+    text-align: center;
+    border-radius: 4px;
 
 }
 #question-box {
@@ -53,6 +56,16 @@ li{
 }
 
 #start a{
+    color: olivedrab;
+    padding: 10px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size: 2em;
+    display: inline-block;
+}
+
+#gameover a{
     color: olivedrab;
     padding: 10px;
     display: block;
