@@ -54,7 +54,7 @@ class Question {
             const yellow = document.getElementById("yellow")
             const green = document.getElementById("green")
 
-           let answer = document.getElementById("answer")
+           
 
             let colors = [red, blue, yellow, green]
 
@@ -66,15 +66,35 @@ class Question {
                 colors[index].innerHTML = question.results[0].incorrect_answers[index]
             }
             colors[colors.length - 1].innerHTML = question.results[0].correct_answer
-            //colors[colors.length - 1]
-            //console.log(answer)
-           answer.innerHTML = colors[colors.length - 1].id
-
+        
+            const answer = document.getElementById("answer")
+            answer.innerHTML = colors[colors.length - 1].id
 
         })
 
         
     }
+
+
+    async fetchNew() {
+        const url = "https://opentdb.com/api.php?amount=50"
+        try {
+            const res = await fetch(url);
+
+            if (res.ok) {
+                let data = await res.json();
+                return data;
+            } else {
+                let data = await res.json();
+                throw data.meta.msg;
+            }
+        } catch (error) {
+            console.warn(error)
+        }
+
+}
+
+    
 
    
 

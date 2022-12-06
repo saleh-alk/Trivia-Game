@@ -7,12 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let canvas = document.querySelector("#game-box")
     let ctx = canvas.getContext("2d")
 
+    
+
   
 
     const questions = new Question()
     questions.trivia()
-  
 
+
+    
+    
+  
     const player = new Character({
         x: -30,
         y:200
@@ -68,53 +73,91 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //animate characters, collision, answers movement
+  
     
     function animate() {
         
-        window.requestAnimationFrame(animate)
+        //window.requestAnimationFrame(animate)
+        const frames = requestAnimationFrame(animate)
         ctx.fillStyle = "black"
         ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+        
+
         player.update()
         red.update()
         green.update()
         blue.update()
         yellow.update()
         
-    
+
+       
+        
 
         //collision
-        function collision(colorPosition, colorCharacter) {
+        function collision(colorPosition, colorCharacter, color) {
+            let scores = document.getElementById("score")
+            let ans = document.getElementById("answer")
+            let ansText = ans.innerText
+            
             if (player.position.x + player.character.width >= colorPosition.x
                 && player.position.x <= colorPosition.x + colorCharacter.width
-                && player.position.y + player.character.height >= colorPosition.y
-                && player.position.y <= colorPosition.y + colorCharacter.height) {
+                && player.position.y + player.character.height >= colorPosition.y +25
+                && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color !==ansText ) {
                 score += 1
+                scores.innerHTML = score
                 console.log(score)
                 //gameOver = true
                 gameOver.style.display = "block"
-                
                 red.position.x = 200
                 red.position.y = 55
-                red.velocity.y = 0
+                
 
                 green.position.x = 400
                 green.position.y = 55
-                green.velocity.y = 0
+                
 
                 blue.position.x = 600
                 blue.position.y = 55
-                blue.velocity.y = 0
+                
 
                 yellow.position.x = 800
                 yellow.position.y = 55
-                yellow.velocity.y = 0
+
+                player.position.x = -30
+                player.position.y = 200
+                
+                cancelAnimationFrame(frames)
             }
         }
-        collision(red.position, red.character)
-        collision(yellow.position, yellow.character)
-        collision(blue.position, blue.character)
-        collision(green.position, green.character)
-       
+        collision(red.position, red.character, "red")
+        collision(yellow.position, yellow.character, "yellow")
+        collision(blue.position, blue.character, "blue")
+        collision(green.position, green.character, "green")
+        // if (player.position.x + player.character.width >= red.position.x 
+        //     && player.position.x <= red.position.x + red.character.width
+        //     && player.position.y + player.character.height >= red.position.y
+        //     && player.position.y <= red.position.y + red.character.height) {
+        //     score += 1
+        //     console.log(score)
+        //     //gameOver = true
+        //     gameOver.style.display ="block"
+        //     red.position.x = 200
+        //     red.position.y = 55
+        //     red.velocity.y = 0
+
+        //     green.position.x = 400
+        //     green.position.y = 55
+        //     green.velocity.y = 0
+
+        //     blue.position.x = 600
+        //     blue.position.y = 55
+        //     blue.velocity.y = 0
+
+        //     yellow.position.x = 800
+        //     yellow.position.y = 55
+        //     yellow.velocity.y = 0
+        // }
   
 
         //colors up and down movement
@@ -207,13 +250,23 @@ document.addEventListener("DOMContentLoaded", () => {
         let startDiv = document.getElementById("start")
         let gameBox = document.getElementById("game-box")
         let questionBox = document.getElementById("question-box")
+        let scoreBoard = document.getElementById("scoreboard")
+
+        // let ans = document.getElementById("answer")
+        // let ansText = ans.innerText
+        // console.log(ansText)
+        
         animate()
-        //console.log(questions.trivia())
+        
+
+
+        
 
 
         startDiv.style.display = "none"
         gameBox.style.display = "block"
         questionBox.style.display = "block"
+        scoreBoard.style.display = "block"
     })
 
 
@@ -221,35 +274,29 @@ document.addEventListener("DOMContentLoaded", () => {
         let startDiv = document.getElementById("start")
         let gameBox = document.getElementById("game-box")
         let questionBox = document.getElementById("question-box")
+        let scoreBoard = document.getElementById("scoreboard")
+        
+        
         ctx.clearRect(0,0, canvas.width, canvas.height)
 
         //console.log(questions.trivia())
 
+        
 
         startDiv.style.display = "block"
         gameBox.style.display = "none"
         questionBox.style.display = "none"
+        scoreBoard.style.display = "none"
+
     })
 
-
-
-
-
-
-
-
-    // getting  positions
-    function getCursorPosition(canvas, event) {
-        const rect = canvas.getBoundingClientRect()
-        const x = event.clientX - rect.left
-        const y = event.clientY - rect.top
-        console.log("x: " + x + " y: " + y)
-    }
 
     
-    canvas.addEventListener('mousedown', function (e) {
-        getCursorPosition(canvas, e)
-    })
+
+
+
+
+
 
 })
 
