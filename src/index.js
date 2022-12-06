@@ -7,17 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let canvas = document.querySelector("#game-box")
     let ctx = canvas.getContext("2d")
 
-    
-
-  
-
     const questions = new Question()
     questions.trivia()
 
-
-    
-    
-  
     const player = new Character({
         x: -30,
         y:200
@@ -62,9 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
         y: 4
     }, "src/assets/yellow.png", ctx, canvas)
 
-    
-
-    
     let score = 0
 
     /// start the game button and gameover
@@ -72,19 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let gameOver = document.getElementById("gameover")
     let nextRound = document.getElementById("nextround")
 
-
     //animate characters, collision, answers movement
   
-    
     function animate() {
-        
         
         //window.requestAnimationFrame(animate)
         const frames = requestAnimationFrame(animate)
         ctx.fillStyle = "#2d545e"
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-        
 
         player.update()
         red.update()
@@ -109,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 score = 0
                 scores.innerHTML = score
-                //gameOver = true
+  
                 gameOver.style.display = "block"
                 gameBox.style.display = "none"
                 questionBox.style.display = "none"
@@ -117,15 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 red.position.x = 200
                 red.position.y = 55
                 
-
                 green.position.x = 400
                 green.position.y = 55
                 
-
                 blue.position.x = 600
                 blue.position.y = 55
                 
-
                 yellow.position.x = 800
                 yellow.position.y = 55
 
@@ -173,32 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
         collision(yellow.position, yellow.character, "yellow")
         collision(blue.position, blue.character, "blue")
         collision(green.position, green.character, "green")
-        // if (player.position.x + player.character.width >= red.position.x 
-        //     && player.position.x <= red.position.x + red.character.width
-        //     && player.position.y + player.character.height >= red.position.y
-        //     && player.position.y <= red.position.y + red.character.height) {
-        //     score += 1
-        //     console.log(score)
-        //     //gameOver = true
-        //     gameOver.style.display ="block"
-        //     red.position.x = 200
-        //     red.position.y = 55
-        //     red.velocity.y = 0
-
-        //     green.position.x = 400
-        //     green.position.y = 55
-        //     green.velocity.y = 0
-
-        //     blue.position.x = 600
-        //     blue.position.y = 55
-        //     blue.velocity.y = 0
-
-        //     yellow.position.x = 800
-        //     yellow.position.y = 55
-        //     yellow.velocity.y = 0
-        // }
+   
   
-
         //colors up and down movement
 
         if(red.position.y > 500){
@@ -228,15 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     }
-
-   
-
-    
-   
-        
-    
-
-    
 
     
     //user movement
@@ -283,13 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
-
-   
-
-
-
-
     startButton.addEventListener("click", (e) => {
+ 
         let startDiv = document.getElementById("start")
         let gameBox = document.getElementById("game-box")
         let questionBox = document.getElementById("question-box")
@@ -316,24 +260,21 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
-
-
-
     gameOver.addEventListener("click", (e) => {
-        let startDiv = document.getElementById("start")
-        let gameBox = document.getElementById("game-box")
-        let questionBox = document.getElementById("question-box")
-        let scoreBoard = document.getElementById("scoreboard")
-        let gameOverButton = document.getElementById("gameover")
+        // let startDiv = document.getElementById("start")
+        // let gameBox = document.getElementById("game-box")
+        // let questionBox = document.getElementById("question-box")
+        // let scoreBoard = document.getElementById("scoreboard")
+        // let gameOverButton = document.getElementById("gameover")
         
         // ctx.clearRect(0,0, canvas.width, canvas.height)
-        window.location.reload
+        window.location.reload()
 
-        startDiv.style.display = "block"
-        gameBox.style.display = "none"
-        questionBox.style.display = "none"
-        scoreBoard.style.display = "none"
-        gameOverButton.style.display = "none"
+        // startDiv.style.display = "block"
+        // gameBox.style.display = "none"
+        // questionBox.style.display = "none"
+        // scoreBoard.style.display = "none"
+        // gameOverButton.style.display = "none"
 
     })
 

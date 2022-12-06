@@ -1,7 +1,6 @@
 
-import Player from './player.js'
 
-import Question from './question.js'
+//import Question from './question.js'
 class Game {
     constructor(ctx){
         
