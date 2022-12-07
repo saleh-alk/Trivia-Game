@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     questions.trivia()
 
     const player = new Character({
-        x: -30,
+        x: 5,
         y:200
     },{
         x:0,
@@ -64,8 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //animate characters, collision, answers movement
   
     function animate() {
-        
-        //window.requestAnimationFrame(animate)
+
         const frames = requestAnimationFrame(animate)
         ctx.fillStyle = "#2d545e"
         ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -91,55 +90,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 && player.position.y + player.character.height >= colorPosition.y +25
                 && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color !==ansText ) {
                 let gameBox = document.getElementById("game-box")
+                let finalScore = document.getElementById("final-score")
+                let scoreBoard = document.getElementById("scoreboard")
+
                 
+                finalScore.innerHTML = score
                 score = 0
                 scores.innerHTML = score
   
                 gameOver.style.display = "block"
                 gameBox.style.display = "none"
                 questionBox.style.display = "none"
-
-                red.position.x = 200
-                red.position.y = 55
-                
-                green.position.x = 400
-                green.position.y = 55
-                
-                blue.position.x = 600
-                blue.position.y = 55
-                
-                yellow.position.x = 800
-                yellow.position.y = 55
+                scoreBoard.style.display = "none"
 
                 player.position.x = -30
                 player.position.y = 200
                 
                 
-            } else if (player.position.x + player.character.width >= colorPosition.x
-                && player.position.x <= colorPosition.x + colorCharacter.width
+            } else if (player.position.x + player.character.width >= colorPosition.x + 25
+                && player.position.x <= colorPosition.x + colorCharacter.width - 20
                 && player.position.y + player.character.height >= colorPosition.y + 25
                 && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color === ansText){
                 let nextRound = document.getElementById("nextround")
                 let gameBox = document.getElementById("game-box")
                 let questionBox = document.getElementById("question-box")
 
-
-                red.position.x = 200
-                red.position.y = 55
-
-
-                green.position.x = 400
-                green.position.y = 55
-
-
-                blue.position.x = 600
-                blue.position.y = 55
-
-
-                yellow.position.x = 800
-                yellow.position.y = 55
-
-                player.position.x = -30
+                player.position.x = 5
                 player.position.y = 200
 
                 score += 1
@@ -160,28 +136,28 @@ document.addEventListener("DOMContentLoaded", () => {
         //colors up and down movement
 
         if(red.position.y > 500){
-            red.velocity.y = -5
+            red.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
         }else if(red.position.y < 20){
-            red.velocity.y = 5
+            red.velocity.y = Math.floor(Math.random() * 6) + 1
         }
 
         if (green.position.y > 500) {
-            green.velocity.y = -5
+            green.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
         } else if (green.position.y < 20) {
-            green.velocity.y = 5
+            green.velocity.y = Math.floor(Math.random() * 6) + 1
         }
 
 
         if (blue.position.y > 500) {
-            blue.velocity.y = -5
+            blue.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
         } else if (blue.position.y < 20) {
-            blue.velocity.y = 5
+            blue.velocity.y = Math.floor(Math.random() * 6) + 1
         }
 
         if (yellow.position.y > 500) {
-            yellow.velocity.y = -5
+            yellow.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
         } else if (yellow.position.y < 20) {
-            yellow.velocity.y = 5
+            yellow.velocity.y = Math.floor(Math.random() * 6) + 1
         }
 
 
@@ -193,19 +169,37 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault()
         switch(e.key){
             case "ArrowRight":
-                player.velocity.x = 5
+                if (player.position.x < 1000){
+                    player.velocity.x = 5
+                }else{
+                    player.velocity.x = 0
+                }
+                
             break
 
             case "ArrowLeft":
-                player.velocity.x = -5
+                if (player.position.x > 0){
+                    player.velocity.x = -5
+                }else{
+                    player.velocity.x = 0
+                }
+                
             break
 
             case "ArrowUp":
-                player.velocity.y = -5
+                if(player.position.y  > 10){
+                    player.velocity.y = -5
+                } else{
+                    player.velocity.y = 0
+                }
                 break
 
             case "ArrowDown":
-                player.velocity.y = 5
+                if(player.position.y < 440){
+                    player.velocity.y = 5
+                } else{
+                    player.velocity.y = 0
+                }
                 break
         }
     })

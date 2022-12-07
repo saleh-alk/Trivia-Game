@@ -11,7 +11,7 @@ class Question {
 
     trivia() {
         
-        const url = "https://opentdb.com/api.php?amount=50"
+        const url = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
         async function fetchNew() {
             try {
                 const res = await fetch(url);
@@ -76,30 +76,9 @@ class Question {
     }
 
 
-    async fetchNew() {
-        const url = "https://opentdb.com/api.php?amount=50"
-        try {
-            const res = await fetch(url);
 
-            if (res.ok) {
-                let data = await res.json();
-                return data;
-            } else {
-                let data = await res.json();
-                throw data.meta.msg;
-            }
-        } catch (error) {
-            console.warn(error)
-        }
 
-}
 
-    
-
-   
-
-  
-    
 
 
 }

@@ -12,7 +12,7 @@
     font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
     transition: all 250ms;
     border: 0;
-    font-size: 15px;
+    font-size: 8px;
 
 }
 
@@ -46,7 +46,7 @@
     font-family: 'Trocchi', serif;
     font-size: 15px;
     font-weight: normal;
-    line-height: 48px;
+    line-height: 25px;
     margin: 0;
 }
 
@@ -56,11 +56,16 @@
 
 body{
     background-color: #494D5F;
+    /* background-color: black; */
+    background-image: url("./src/assets/galaxy.png");
     
+}
+#question{
+    font-size: 15px;
 }
 
 #question-box{
-    height: 100;
+    height: 600;
     width: 300px;
     margin-left: 10px;
     background-color: #c2fbd7;
@@ -87,6 +92,7 @@ li{
     display: flex;
     list-style: none;
     text-align: left;
+    font-size: 5;
 }
 
 #start{
@@ -97,6 +103,15 @@ li{
     text-align: center;
 }
 
+#nextround{
+    padding: 20px;
+        position: fixed;
+        top: 30%;
+        left: 40%;
+        text-align: center;
+
+}
+
 #start a{
     width: 200px;
     text-align: center;
@@ -105,7 +120,8 @@ li{
 }
 
 #gameover a{
-    width: 200px;
+    width: 300px;
+
     text-align: center;
     font-size: 2em;
     display: inline-block;
@@ -113,7 +129,7 @@ li{
 #gameover{
     padding: 20px;
     position: fixed;
-    top: 30%;
+    top: 40%;
     left: 40%;
 }
 #scoreboard, #score{
@@ -158,7 +174,10 @@ li{
 }
 
 
-
+#portfolio{
+    
+    margin-left: 1100px;
+}
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/

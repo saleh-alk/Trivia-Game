@@ -12,8 +12,14 @@
 <body>
     <h2 id="title">Space Trivia</h2>
     <div style="display:flex;">
-        <div id = "scoreboard" style="display:none">Score: <h5 id="score"></h5>
-        </div>
+        <div id = "scoreboard" style="display:none">Score: <h5 id="score">0</h5></div>
+
+                <div id="portfolio">
+                    <a href="https://github.com/saleh-alk"><img src="./src/assets/git.png" height="100" width="50"></a>
+                    <a href="https://www.linkedin.com/in/saleh-alkaheli-97971815a/"><img src="./src/assets/linkedin.png" height="100"
+                            width="50"></a>
+                </div>
+
     </div>
     
 
@@ -25,14 +31,17 @@
         <canvas width="1100" height="600" id="game-box" style="display:none"> </canvas>
         <div id="playgame">
             <div id="start" style="display:block"><a href="#">Start Game</a></div>
-            <div id="gameover" style="display:none"><a href="#">Game Over</a></div>
+            <div id="gameover" style="display:none"><a href="#">
+                Game Over!!!! your score is <h5 id="final-score"></h5>
+                    Click in this box to restart
+                </a></div>
             <div id="nextround" style="display:none;"><a href="#">Next Round</a></div>
         </div>
 
-        <div id="question-box" style="display:none">
+        <div id="question-box" style="display:none" height="600">
             <h2 id="question"></h2>
             <br>
-            <ul>
+            <ul id="choice">
                 <li><img src="src/assets/blue.png" alt=""><p id="blue"></p></li>
                 <li><img src="src/assets/red.png" alt=""><p id="red"></p></li>
                 <li><img src="src/assets/green.png" alt=""><p id="green"></p></li>
@@ -40,10 +49,9 @@
             </ul>
         </div>
 
-        
-            
-        </canvas>
+    
     </div>
+
     <!-- <img id="myImage" src="src/assets/astronaut.png"> -->
     <div id="answer" style="display:none"></div>
 </body>
