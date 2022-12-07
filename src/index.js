@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, {
         x: 0,
-        y: 1
+        y: 2
     }, "src/assets/green.png", ctx, canvas)
 
     const blue = new Character({
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, {
         x: 0,
-        y: 3
+        y: 2
     }, "src/assets/blue.png", ctx, canvas)
 
     const yellow = new Character({
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, {
         x: 0,
-        y: 4
+        y: 2
     }, "src/assets/yellow.png", ctx, canvas)
     let score = 0
 
@@ -116,15 +116,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 red.position.x = 200
                 red.position.y = 55
+                red.velocity.x = 0
+                red.velocity.y = 2
 
                 green.position.x = 400
                 green.position.y = 55
+                green.velocity.x = 0
+                green.velocity.y = 2
 
                 blue.position.x = 600
                 blue.position.y = 55
+                blue.velocity.x = 0
+                blue.velocity.y = 2
 
                 yellow.position.x = 800
                 yellow.position.y = 55
+                yellow.velocity.x = 0
+                yellow.velocity.y = 2
 
 
                 gameBox.style.display = "none"
