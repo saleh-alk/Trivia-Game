@@ -11,7 +11,7 @@ class Question {
 
     trivia() {
         
-        const url = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
+        const url = "https://opentdb.com/api.php?amount=50&category=14&difficulty=easy&type=multiple"
         async function fetchNew() {
             try {
                 const res = await fetch(url);
@@ -58,14 +58,14 @@ class Question {
 
             let colors = [red, blue, yellow, green]
 
-
+            let k = Math.floor(Math.random() * 49) + 1
             let question = await fetchNew();
-            q.innerHTML = question.results[0].question
+            q.innerHTML = question.results[k].question
             colors = shuffle(colors)
             for (let index = 0; index < colors.length - 1; index++) {
-                colors[index].innerHTML = question.results[0].incorrect_answers[index]
+                colors[index].innerHTML = question.results[k].incorrect_answers[index]
             }
-            colors[colors.length - 1].innerHTML = question.results[0].correct_answer
+            colors[colors.length - 1].innerHTML = question.results[k].correct_answer
         
             const answer = document.getElementById("answer")
             answer.innerHTML = colors[colors.length - 1].id
