@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let scoreBoard = document.getElementById("scoreboard")
 
                 finalScore.innerHTML = score
-                score = 0
+                //score = 0
                 scores.innerHTML = score
   
                 gameOver.style.display = "block"
@@ -205,27 +205,6 @@ document.addEventListener("DOMContentLoaded", () => {
             blue.velocity.x = Math.floor(Math.random() * 5) + 1
         }
 
-
-        // if (green.position.y > 500) {
-        //     green.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
-        // } else if (green.position.y < 20) {
-        //     green.velocity.y = Math.floor(Math.random() * 6) + 1
-        // }
-
-
-        // if (blue.position.y > 500) {
-        //     blue.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
-        // } else if (blue.position.y < 20) {
-        //     blue.velocity.y = Math.floor(Math.random() * 6) + 1 
-        // } 
-
-        // if (yellow.position.y > 500) {
-        //     yellow.velocity.y = -1 * Math.floor(Math.random() * 6) + 1
-        // } else if (yellow.position.y < 20) {
-        //     yellow.velocity.y = Math.floor(Math.random() * 6) + 1
-        // }
-
-
     }
 
     let sound = document.getElementById("sound")
@@ -296,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }    
     })
 
-
     startButton.addEventListener("click", (e) => {
         let startDiv = document.getElementById("start")
         let gameBox = document.getElementById("game-box")
@@ -325,7 +303,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gameOver.addEventListener("click", (e) => {
         window.location.reload()
-
     })
 
     let audio = new Audio("./src/assets/drone.mp3")
@@ -334,7 +311,6 @@ document.addEventListener("DOMContentLoaded", () => {
         sound.style.display = "none"
         mute.style.display = "block"
         audio.play()
-
     })
 
     mute.addEventListener("click", () => {
@@ -342,9 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
         mute.style.display = "none"
         audio.pause()
     })
-
-
-
 })
 
 
