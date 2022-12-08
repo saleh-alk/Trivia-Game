@@ -2,6 +2,14 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css ***!
   \****************************************************************************************************/
 @import url(https://fonts.cdnfonts.com/css/battlestar);
+/*!***********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/instructions.css ***!
+  \***********************************************************************************************************/
+@import url(https://fonts.cdnfonts.com/css/battlestar);
+/*!******************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/buttons.css ***!
+  \******************************************************************************************************/
+@import url(https://fonts.cdnfonts.com/css/battlestar);
 /*!********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css (1) ***!
   \********************************************************************************************************/
@@ -21,31 +29,8 @@
 
 }
 
-#instructions{
-    height: 600;
-    width: 300px;
-    margin-left: 540px;
-    margin-top: 250px;
-    margin-right: 50px;
-    background-color: #c2fbd7;
-    border-radius: 10px;
-    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
-    color: green;
-    display: inline-block;
-    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-    padding: 10px 30px;
-    text-align: center;
-    transition: all 250ms;
-    border: 0;
-    font-size: 15px;
-    font-family: 'Battlestar', sans-serif;
-}
-
-
 
 #title {
-    
-    
     color: green;
     background-color: #c2fbd7;
     width: 200px;
@@ -63,7 +48,6 @@
     font-size: 30px;
     font-family: 'Battlestar', sans-serif;
     user-select: none;
-  
 
 }
 #question-box {
@@ -82,12 +66,72 @@
  display: flex;
 }
 
-body{
+#question{
+    font-size: 15px;
+}
+
+#question-box{
+    height: 600;
+    width: 300px;
+    margin-left: 10px;
+    background-color: #c2fbd7;
+    border-radius: 10px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 10px 30px;
+    text-align: center;
+    transition: all 250ms;
+    border: 0;
+    font-size: 15px;
+
+}
+
+img{
+    height: 50px;
+}
+
+li{
+    display: flex;
+    list-style: none;
+    text-align: left;
+    font-size: 5;
+}
+
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/instructions.css (1) ***!
+  \***************************************************************************************************************/
+#instructions {
+    height: 600;
+    width: 300px;
+    margin-left: 540px;
+    margin-top: 250px;
+    margin-right: 50px;
+    background-color: #c2fbd7;
+    border-radius: 10px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 10px 30px;
+    text-align: center;
+    transition: all 250ms;
+    border: 0;
+    font-size: 15px;
+    font-family: 'Battlestar', sans-serif;
+}
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/background.css ***!
+  \*********************************************************************************************************/
+
+
+body {
     /* background-color: #494D5F;
     background-color: black;
     background-image: url("./src/assets/galaxy.png"); */
     background-color: #000;
-    
+
 }
 
 .main {
@@ -197,7 +241,7 @@ body{
         -11vw -43vh 3px 3px #fff,
         44vw -38vh 0px 3px #fff,
         -8vw -3vh 3px 1px #fff,
-        33vw -39vh 3px 3px #fff; 
+        33vw -39vh 3px 3px #fff;
     animation: zoom 10s alternate infinite;
 }
 
@@ -210,45 +254,10 @@ body{
         transform: scale(1.5);
     }
 }
-
-
-
-#question{
-    font-size: 15px;
-}
-
-#question-box{
-    height: 600;
-    width: 300px;
-    margin-left: 10px;
-    background-color: #c2fbd7;
-    border-radius: 10px;
-    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
-    color: green;
-    display: inline-block;
-    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-    padding: 10px 30px;
-    text-align: center;
-    transition: all 250ms;
-    border: 0;
-    font-size: 15px;
-
-
-}
-
-img{
-    height: 50px;
-
-}
-
-li{
-    display: flex;
-    list-style: none;
-    text-align: left;
-    font-size: 5;
-}
-
-#start{
+/*!**********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/buttons.css (1) ***!
+  \**********************************************************************************************************/
+#start {
     padding: 20px;
     position: fixed;
     top: 30%;
@@ -256,36 +265,39 @@ li{
     text-align: center;
 }
 
-#nextround{
+#nextround {
     padding: 20px;
-        position: fixed;
-        top: 30%;
-        left: 40%;
-        text-align: center;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    text-align: center;
 
 }
 
-#start a{
+#start a {
     width: 200px;
     text-align: center;
     font-size: 2em;
     display: inline-block;
 }
 
-#gameover a{
+#gameover a {
     width: 300px;
 
     text-align: center;
     font-size: 2em;
     display: inline-block;
 }
-#gameover{
+
+#gameover {
     padding: 20px;
     position: fixed;
     top: 40%;
     left: 40%;
 }
-#scoreboard, #score{
+
+#scoreboard,
+#score {
     background-color: #c2fbd7;
     border-radius: 10px;
     box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
@@ -300,13 +312,16 @@ li{
     font-family: 'Battlestar', sans-serif;
 
 }
-#score{
+
+#score {
     font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
 }
 
 
 
- #nextround a,#gameover a,#start a {
+#nextround a,
+#gameover a,
+#start a {
     background-color: #c2fbd7;
     border-radius: 100px;
     box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
@@ -326,18 +341,20 @@ li{
     touch-action: manipulation; */
 }
 
-#gameover a, #start a {
+#gameover a,
+#start a {
     box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
 }
 
 
-#portfolio{
-    
+#portfolio {
+
     margin-left: 1000px;
 }
 
-#mute, #sound{
+#mute,
+#sound {
     margin-left: 20px;
 }
 /*!*************************************************************************************************************************************!*\
