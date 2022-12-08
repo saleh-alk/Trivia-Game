@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 let lives = document.getElementById("lives")
 
                 finalScore.innerHTML = score
-                //score = 0
                 scores.innerHTML = score
   
                 gameOver.style.display = "block"
