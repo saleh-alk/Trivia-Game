@@ -6,8 +6,11 @@ import Question from './scripts/question.js'
 document.addEventListener("DOMContentLoaded", () => {
     let canvas = document.querySelector("#game-box")
     let ctx = canvas.getContext("2d")
+
+
+   
     const questions = new Question()
-    questions.trivia()
+    //questions.trivia()
 
     const player = new Character({
         x: 5,
@@ -54,10 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }, "src/assets/yellow.png", ctx, canvas)
     let score = 0
 
+    
+
     /// start the game button and gameover
     let startButton = document.getElementById("start")
     let gameOver = document.getElementById("gameover")
     let nextRound = document.getElementById("nextround")
+
 
     //animate characters, collision, answers movement
     let lives = 3;
@@ -323,6 +329,27 @@ document.addEventListener("DOMContentLoaded", () => {
         let scoreBoard = document.getElementById("scoreboard")
         let instructions = document.getElementById("instructions")
         let lives = document.getElementById("lives")
+        let categories = document.getElementById("Category")
+        let category = document.getElementById("Category").value
+
+        if(category ==="Film" ){
+            let url = "https://opentdb.com/api.php?amount=50&category=14&difficulty=easy&type=multiple"
+            questions.trivia(url)
+        } else if (category === "Music"){
+            let url = "https://opentdb.com/api.php?amount=50&category=12&difficulty=easy&type=multiple"
+            questions.trivia(url)
+        } else if (category === "Video Games"){
+            let url = "https://opentdb.com/api.php?amount=30&category=15&difficulty=easy&type=multiple"
+            questions.trivia(url)
+        } else if(category === "Select Category"){
+            let url = "https://opentdb.com/api.php?amount=30&difficulty=easy&type=multiple"
+            questions.trivia(url)
+        } else if(category === "Computer Science"){
+            let url = "https://opentdb.com/api.php?amount=30&category=18&difficulty=easy&type=multiple"
+            questions.trivia(url)
+        }
+        
+        
         
         animate()
         
@@ -332,6 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreBoard.style.display = "block"
         lives.style.display = "block"
         instructions.style.display = "none"
+        categories.style.display = "none"
     })
 
     nextRound.addEventListener("click", (e)=> {

@@ -302,7 +302,7 @@ body {
 
 
 
-#nextround a,
+#Category, #nextround a,
 #gameover a,
 #start a {
     background-color: #c2fbd7;
@@ -322,6 +322,10 @@ body {
     /* user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation; */
+}
+#Category{
+    margin-left: 30px;
+    margin-top: 50px;
 }
 
 #gameover a,

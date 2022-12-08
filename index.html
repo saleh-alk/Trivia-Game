@@ -27,6 +27,8 @@
                             width="50"></a>
                 </div>
 
+               
+
     </div>
     
 
@@ -38,6 +40,13 @@
         <canvas width="1100" height="600" id="game-box" style="display:none"> </canvas>
         <div id="playgame">
             <div id="start" style="display:block"><a href="#">Start Game</a></div>
+            <select style="width: 280px" id="Category">
+                <option selected="">Select Category</option>
+                <option>Film</option>
+                <option>Music</option>
+                <option>Video Games</option>
+                <option>Computer Science</option>
+            </select>
             <div id="instructions" style="display:block"> <b>Instructions:</b> Your goal is to collide with the color that matches
                 the correct answer. The aliens will bounce around until  you collide with one. If you get the correct answer you get a point.
                  If not then its game over. You can move your player with the control keys. (ALIENS MOVE RANDOMLY AT RANDOM SPEED.)</div>
@@ -46,6 +55,7 @@
                     Click in this box to restart
                 </a></div>
             <div id="nextround" style="display:none;"><a href="#">Next Round</a></div>
+           
         </div>
 
         <div id="question-box" style="display:none" height="600">

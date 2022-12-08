@@ -9,11 +9,11 @@ class Question {
     }
 
 
-    trivia() {
+    trivia(url) {
         //https://opentdb.com/api.php?amount=30&category=23&difficulty=easy&type=multiple
         //https://opentdb.com/api.php?amount=50&category=14&difficulty=easy&type=multiple
         //https://opentdb.com/api.php?amount=30&category=19&difficulty=easy&type=multiple
-        const url = "https://opentdb.com/api.php?amount=50&category=14&difficulty=easy&type=multiple"
+       // const url = "https://opentdb.com/api.php?amount=50&category=14&difficulty=easy&type=multiple"
         async function fetchNew() {
             try {
                 const res = await fetch(url);
@@ -43,7 +43,7 @@ class Question {
             return array;
         }
 
-        let answer = "hi";
+       
 
 
         // take this to index
@@ -58,7 +58,7 @@ class Question {
 
             let colors = [red, blue, yellow, green]
 
-            let k = Math.floor(Math.random() * 48) + 1
+            let k = Math.floor(Math.random() * 29) + 1
             let question = await fetchNew();
             q.innerHTML = question.results[k].question
             colors = shuffle(colors)
