@@ -38,7 +38,7 @@
     left: 40%;
 }
 
-#scoreboard,
+#lives, #scoreboard,
 #score {
     background-color: #c2fbd7;
     border-radius: 10px;
@@ -57,6 +57,10 @@
 
 #score {
     font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+}
+
+#lives{
+    margin-left: 20px;
 }
 
 
@@ -92,7 +96,7 @@
 
 #portfolio {
 
-    margin-left: 1000px;
+    margin-left: 850px;
 }
 
 #mute,

@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let nextRound = document.getElementById("nextround")
 
     //animate characters, collision, answers movement
-  
+    let lives = 3;
     function animate() {
         const frames = requestAnimationFrame(animate)
         ctx.fillStyle = "#2d545e"
@@ -71,9 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
         blue.update()
         yellow.update()
         
+        
         //collision
         function collision(colorPosition, colorCharacter, color) {
             let scores = document.getElementById("score")
+            let life = document.getElementById("life")
             let ans = document.getElementById("answer")
             let questionBox = document.getElementById("question-box")
             let ansText = ans.innerText
@@ -82,10 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (player.position.x + player.character.width -20>= colorPosition.x
                 && player.position.x +20 <= colorPosition.x + colorCharacter.width
                 && player.position.y + player.character.height >= colorPosition.y +25
-                && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color !==ansText ) {
+                && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color !==ansText && lives === 0) {
                 let gameBox = document.getElementById("game-box")
                 let finalScore = document.getElementById("final-score")
                 let scoreBoard = document.getElementById("scoreboard")
+                let lives = document.getElementById("lives")
 
                 finalScore.innerHTML = score
                 //score = 0
@@ -95,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 gameBox.style.display = "none"
                 questionBox.style.display = "none"
                 scoreBoard.style.display = "none"
+                lives.style.display = "none"
 
                 player.position.x = -30
                 player.position.y = 200
@@ -139,6 +143,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextRound.style.display = "block"
                 questionBox.style.display = "none"
 
+            } else if (player.position.x + player.character.width - 20 >= colorPosition.x
+                && player.position.x + 20 <= colorPosition.x + colorCharacter.width
+                && player.position.y + player.character.height >= colorPosition.y + 25
+                && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color !== ansText && lives !== 0) {
+                let nextRound = document.getElementById("nextround")
+                let gameBox = document.getElementById("game-box")
+                let questionBox = document.getElementById("question-box")
+
+                player.position.x = 5
+                player.position.y = 200
+                lives -= 1
+                life.innerHTML = lives
+                scores.innerHTML = score
+                cancelAnimationFrame(frames)
+
+                red.position.x = 200
+                red.position.y = 55
+                red.velocity.x = 0
+                red.velocity.y = 2
+
+                green.position.x = 400
+                green.position.y = 55
+                green.velocity.x = 0
+                green.velocity.y = 2
+
+                blue.position.x = 600
+                blue.position.y = 55
+                blue.velocity.x = 0
+                blue.velocity.y = 2
+
+                yellow.position.x = 800
+                yellow.position.y = 55
+                yellow.velocity.x = 0
+                yellow.velocity.y = 2
+
+
+                gameBox.style.display = "none"
+                nextRound.style.display = "block"
+                questionBox.style.display = "none"
             }
         }
         collision(red.position, red.character, "red")
@@ -175,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
             green.velocity.y = Math.floor(Math.random() * 5) + 1
             green.velocity.x = Math.floor(Math.random() * 5) + 1
         }
-
 
         if (yellow.position.y > 500) {
             yellow.velocity.y = -1 * Math.floor(Math.random() * 5) + 1
@@ -281,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let questionBox = document.getElementById("question-box")
         let scoreBoard = document.getElementById("scoreboard")
         let instructions = document.getElementById("instructions")
+        let lives = document.getElementById("lives")
         
         animate()
         
@@ -288,6 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gameBox.style.display = "block"
         questionBox.style.display = "block"
         scoreBoard.style.display = "block"
+        lives.style.display = "block"
         instructions.style.display = "none"
     })
 
