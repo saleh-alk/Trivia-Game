@@ -320,5 +320,9 @@ li{
 
 #portfolio{
     
-    margin-left: 1100px;
+    margin-left: 1000px;
+}
+
+#mute, #sound{
+    margin-left: 20px;
 }

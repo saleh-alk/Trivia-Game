@@ -228,6 +228,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    let sound = document.getElementById("sound")
+    let mute = document.getElementById("mute")
+
     
     //user movement
     window.addEventListener("keydown", (e)=> {
@@ -273,18 +276,22 @@ document.addEventListener("DOMContentLoaded", () => {
         switch (e.key) {
             case "ArrowRight":
                 player.velocity.x = 0
+             
             break
 
             case "ArrowLeft":
                 player.velocity.x = 0
+               
             break
 
             case "ArrowUp":
                 player.velocity.y = 0
+               
                 break
 
             case "ArrowDown":
                 player.velocity.y = 0
+               
                 break
         }    
     })
@@ -320,6 +327,23 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.reload()
 
     })
+
+    let audio = new Audio("./src/assets/drone.mp3")
+
+    sound.addEventListener("click", () => {
+        sound.style.display = "none"
+        mute.style.display = "block"
+        audio.play()
+
+    })
+
+    mute.addEventListener("click", () => {
+        sound.style.display = "block"
+        mute.style.display = "none"
+        audio.pause()
+    })
+
+
 
 })
 
