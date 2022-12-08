@@ -1,6 +1,10 @@
 /*!****************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css ***!
   \****************************************************************************************************/
+@import url(https://fonts.cdnfonts.com/css/battlestar);
+/*!********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css (1) ***!
+  \********************************************************************************************************/
 #game-box {
     display: inline;
     text-align: center;
@@ -34,12 +38,13 @@
     transition: all 250ms;
     border: 0;
     font-size: 15px;
+    font-family: 'Battlestar', sans-serif;
 }
 
 
 
 #title {
-    font-size: 25px;
+    
     
     color: green;
     background-color: #c2fbd7;
@@ -55,7 +60,8 @@
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 16px;
+    font-size: 30px;
+    font-family: 'Battlestar', sans-serif;
     user-select: none;
   
 
@@ -291,7 +297,11 @@ li{
     transition: all 250ms;
     border: 0;
     font-size: 15px;
+    font-family: 'Battlestar', sans-serif;
 
+}
+#score{
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
 }
 
 
@@ -304,6 +314,7 @@ li{
     cursor: pointer;
     display: inline-block;
     font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    font-family: 'Battlestar', sans-serif;
     padding: 7px 20px;
     text-align: center;
     text-decoration: none;
