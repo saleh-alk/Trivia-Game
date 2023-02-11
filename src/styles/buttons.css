@@ -1,10 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/battlestar');
 #start {
     padding: 20px;
-    position: fixed;
+    /* position: fixed;
     top: 30%;
     left: 40%;
-    text-align: center;
+    text-align: center; */
 }
 
 #nextround {
@@ -36,6 +36,12 @@
     position: fixed;
     top: 40%;
     left: 40%;
+}
+
+#links-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
 }
 
 #lives, #scoreboard,
@@ -98,10 +104,7 @@
 }
 
 
-#portfolio {
 
-    margin-left: 850px;
-}
 
 #mute,
 #sound {

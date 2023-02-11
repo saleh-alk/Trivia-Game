@@ -323,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     startButton.addEventListener("click", (e) => {
+        let title = document.getElementById("title")
         let startDiv = document.getElementById("start")
         let gameBox = document.getElementById("game-box")
         let questionBox = document.getElementById("question-box")
@@ -353,6 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         animate()
         
+        title.style.display = "none"
         startDiv.style.display = "none"
         gameBox.style.display = "block"
         questionBox.style.display = "block"

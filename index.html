@@ -12,20 +12,26 @@
 </head>
 <body>
     <div class="main"></div>
-    <h2 id="title">SPACE TRIVIA</h2>
+    
     <div style="display:flex;">
         <div id = "scoreboard" style="display:none">Score: <h5 id="score">0</h5></div>
         <div id= "lives" style="display:none">Lives: <h5 id="life">3</h5></div>
-        <div id="sound" style="display:block"><img src="./src/assets/sound.png" height="100" width="50"></div>
-        <div id="mute" style="display:none"> <img src="./src/assets/mute.png" height="100" width="50"></div>
         
 
-                <div id="portfolio">
-                    
-                    <a href="https://github.com/saleh-alk" target="_blank"><img src="./src/assets/git.png" height="100" width="50"></a>
-                    <a href="https://www.linkedin.com/in/saleh-alkaheli-97971815a/" target="_blank"><img src="./src/assets/linkedin.png" height="100"
-                            width="50"></a>
-                </div>
+        <div class="links-info">
+            <div id="sound" style="display:block"><img src="./src/assets/sound.png" height="100" width="50"></div>
+             <div id="mute" style="display:none"> <img src="./src/assets/mute.png" height="100" width="50"></div>
+
+            <div id="portfolio">
+            
+                <a href="https://github.com/saleh-alk" target="_blank"><img src="./src/assets/git.png" height="100" width="50"></a>
+                <a href="https://www.linkedin.com/in/saleh-alkaheli-97971815a/" target="_blank"><img src="./src/assets/linkedin.png"
+                        height="100" width="50"></a>
+            </div>
+        
+
+           
+        </div>
 
                
 
@@ -39,7 +45,7 @@
     <div id="game">
         <canvas width="1100" height="600" id="game-box" style="display:none"> </canvas>
         <div id="playgame">
-            <div id="start" style="display:block"><a href="#">Start Game</a></div>
+            <h2 id="title">SPACE TRIVIA</h2>
             <select style="width: 280px" id="Category">
                 <option selected="">Select Category</option>
                 <option>Film</option>
@@ -47,7 +53,8 @@
                 <option>Video Games</option>
                 <option>Computer Science</option>
             </select>
-            <div id="instructions" style="display:block"> <b>Instructions:</b> Your goal is to collide with the color that matches
+            <div id="start"><a href="#">Start Game</a></div>
+            <div id="instructions" > <b>Instructions:</b> Your goal is to collide with the color that matches
                 the correct answer. The aliens will bounce around until  you collide with one. If you get the correct answer you get a point.
                  If not then its game over. You can move your player with the control keys. (ALIENS MOVE RANDOMLY AT RANDOM SPEED.)</div>
             <div id="gameover" style="display:none"><a href="#">
@@ -55,6 +62,8 @@
                     Click in this box to restart
                 </a></div>
             <div id="nextround" style="display:none;"><a href="#">Next Round</a></div>
+
+
            
         </div>
 
