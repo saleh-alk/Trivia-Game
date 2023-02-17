@@ -20,9 +20,18 @@ With this game user's will be able to:
 - scores adding up if answered correctly
 - life deducted if answered incorrectly
 
+<p align="center">
+<img src="./spaceTriviaHome.png"  height="350" style="vertical-align:top; margin:4px" width="1200">
+</p>
+
+<p align="center">
+<img src="./spaceTriviaphoto.png"  height="350" style="vertical-align:top; margin:4px" width="1200>
+</p>
+
 In addition, this project will include:
 - ReadMe
 - An about Modal
+
 
 
 ## Technologies, Libraries, APIs
@@ -30,6 +39,135 @@ In addition, this project will include:
 - webpack to bundle and transpile the source Javascript code
 - npm to manage project dependencies
 - fetch api
+
+## Code Snippets
+
+### User Movements
+```javascript
+     window.addEventListener("keydown", (e)=> {
+        e.preventDefault()
+        switch(e.key){
+            case "ArrowRight":
+                if (player.position.x < 1030){
+                    player.velocity.x = 5
+                }else{
+                    player.velocity.x = 0
+                }
+                
+            break
+
+            case "ArrowLeft":
+                if (player.position.x > 0){
+                    player.velocity.x = -5
+                }else{
+                    player.velocity.x = 0
+                }
+                
+            break
+
+            case "ArrowUp":
+                if(player.position.y  > 10){
+                    player.velocity.y = -5
+                } else{
+                    player.velocity.y = 0
+                }
+                break
+
+            case "ArrowDown":
+                if(player.position.y < 500){
+                    player.velocity.y = 5
+                } else{
+                    player.velocity.y = 0
+                }
+                break
+        }
+    })
+
+    window.addEventListener("keyup", (e) => {
+        switch (e.key) {
+            case "ArrowRight":
+                player.velocity.x = 0
+             
+            break
+
+            case "ArrowLeft":
+                player.velocity.x = 0
+               
+            break
+
+            case "ArrowUp":
+                player.velocity.y = 0
+               
+                break
+
+            case "ArrowDown":
+                player.velocity.y = 0
+               
+                break
+        }    
+    })
+
+```
+
+
+### Collision Detection
+
+```javascript
+     function collision(colorPosition, colorCharacter, color) {
+            let scores = document.getElementById("score")
+            let life = document.getElementById("life")
+            let ans = document.getElementById("answer")
+            let questionBox = document.getElementById("question-box")
+            let ansText = ans.innerText
+            // console.log(ansText)
+            
+            if (player.position.x + player.character.width -20>= colorPosition.x
+                && player.position.x +20 <= colorPosition.x + colorCharacter.width
+                && player.position.y + player.character.height >= colorPosition.y +25
+                && player.position.y <= colorPosition.y + colorCharacter.height - 20 && color !==ansText && lives === 0) {
+                let gameBox = document.getElementById("game-box")
+                let finalScore = document.getElementById("final-score")
+                let scoreBoard = document.getElementById("scoreboard")
+                let lives = document.getElementById("lives")
+
+                finalScore.innerHTML = score
+                scores.innerHTML = score
+  
+                gameOver.style.display = "block"
+                gameBox.style.display = "none"
+                questionBox.style.display = "none"
+                scoreBoard.style.display = "none"
+                lives.style.display = "none"
+
+                player.position.x = -30
+                player.position.y = 200
+
+```
+
+### Fetch Api 
+
+```javascript
+  trivia(url) {
+
+        async function fetchNew() {
+            try {
+                const res = await fetch(url);
+
+                if (res.ok) {
+                    let data = await res.json();
+                    return data;
+                } else {
+                    let data = await res.json();
+                    throw data.meta.msg;
+                }
+            } catch (error) {
+                console.warn(error)
+            }
+
+        }
+  }
+
+```
 
 
 ## Implementaition Timeline
@@ -58,7 +196,7 @@ the questions are big and visible. Make sure the core function of the game is wo
 
 
 - Wednesday
-work on a styling.
+work on  styling.
 
 
 
