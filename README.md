@@ -42,7 +42,9 @@ In addition, this project will include:
 
 ## Code Snippets
 
+
 ### User Movements
+
 ```javascript
      window.addEventListener("keydown", (e)=> {
         e.preventDefault()
