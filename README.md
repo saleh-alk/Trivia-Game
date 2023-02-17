@@ -25,12 +25,12 @@ With this game user's will be able to:
 </p>
 
 <p align="center">
-<img src="./spaceTriviaphoto.png"  height="350" style="vertical-align:top; margin:4px" width="1200>
+<img src="./spaceTriviaphoto.png"  height="350" style="vertical-align:top; margin:4px" width="1200">
 </p>
 
-<!-- In addition, this project will include:
+In addition, this project will include:
 - ReadMe
-- An about Modal -->
+- An about Modal
 
 
 
